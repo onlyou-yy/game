@@ -1,3 +1,2 @@
-2021/09/20-22:32:05.612 7b0 Reusing MANIFEST F:\LayaProject\SuperBrain\.laya\chrome\Default\Local Storage\leveldb/MANIFEST-000001
-2021/09/20-22:32:05.613 7b0 Recovering log #3
-2021/09/20-22:32:05.614 7b0 Reusing old log F:\LayaProject\SuperBrain\.laya\chrome\Default\Local Storage\leveldb/000003.log 
+2021/09/23-19:48:09.770 139c4 Creating DB F:\PDF\game\LayaProject\SuperBrain\.laya\chrome\Default\Local Storage\leveldb since it was missing.
+2021/09/23-19:48:11.000 139c4 Reusing MANIFEST F:\PDF\game\LayaProject\SuperBrain\.laya\chrome\Default\Local Storage\leveldb/MANIFEST-000001

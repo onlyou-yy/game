@@ -1,6 +1,7 @@
 export default class CreateQuestionMap extends Laya.Script{
    
-    private questionItem:Laya.Prefab = null;
+    private questionItem:Laya.Prefab;
+    private groupObject:{[circle:string]:Laya.Image[]} = {};
    
     constructor(){
         super();
@@ -8,6 +9,7 @@ export default class CreateQuestionMap extends Laya.Script{
          * @prop {name:questionItem,tips:预制体,type:Prefab,default:null}
          */
         this.questionItem = null;
+        this.groupObject = {};
     }
 
     onAwake(){
@@ -19,10 +21,7 @@ export default class CreateQuestionMap extends Laya.Script{
         let centerX = Laya.stage.width / 2 - 74 / 2;
         let centerY = Laya.stage.height / 2 - 64 / 2;
         //生成中心块
-        let centerItem = this.questionItem.create();
-        centerItem.pos(centerX,centerY);
-        this.owner.addChild(centerItem);
-
+        this.createItem(centerX,centerY);
         //生成外圈块
         for(let i = 1;i <= circleCount;i++){
             let sideCount = i + 1;
@@ -31,22 +30,44 @@ export default class CreateQuestionMap extends Laya.Script{
                 let leftOffsetX = centerX - i * 55;
                 let rightOffsetX = centerX + i * 55;
                 let offsetY = centerY - 32 * i + j * 64;
-                let leftItem = this.questionItem.create();
-                let rightItem = this.questionItem.create();
-                leftItem.pos(leftOffsetX,offsetY);
-                this.owner.addChild(leftItem);
-                rightItem.pos(rightOffsetX,offsetY);
-                this.owner.addChild(rightItem);
+                this.createItem(leftOffsetX,offsetY);
+                this.createItem(rightOffsetX,offsetY);
             }
             //创建上面和下面的块
             let topItem = this.questionItem.create();
             let bottomItem = this.questionItem.create();
-            topItem.pos(centerX,centerY - 64 * i);
-            bottomItem.pos(centerX,centerY + 64 * i);
-            this.owner.addChild(topItem);
-            this.owner.addChild(bottomItem);
-            
+            this.createItem(centerX,centerY - 64 * i);
+            this.createItem(centerX,centerY + 64 * i);
+            // 左上，左下，右上，右下
+            for(let j = 0;j < i - 1; j++){
+                // 左上
+                let leftX = centerX - 55.5 * (i - 1 - j);
+                let leftTopY = centerY - 32 * (i + 1 + j);
+                this.createItem(leftX,leftTopY);
+                // 左下
+                let leftBomY = centerY + 32 * (i + 1 + j);
+                this.createItem(leftX,leftBomY);
+                // 右上
+                let rightX = centerX + 55.5 * (i - 1 - j);
+                let rightTopY = centerY - 32 * (i + 1 + j);
+                this.createItem(rightX,rightTopY);
+                // 右下
+                let rightBomY = centerY + 32 * (i + 1 + j);
+                this.createItem(rightX,rightBomY);
+            }
         }
+    }
+
+    private createItem(x,y):Laya.Image {
+        let item = this.questionItem.create();
+        item.pos(x,y);
+        this.owner.addChild(item);
+        return item
+    }
+
+    private addItemToGroup(item:Laya.Image,circle:number):void{
+        if(!this.groupObject[circle]) this.groupObject[circle] = new Array();
+        this.groupObject[circle].push(item);
     }
 
     // private createMap():void{
