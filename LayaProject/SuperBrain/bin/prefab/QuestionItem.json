@@ -1,1 +1,1 @@
-{"type":"Image","props":{"skin":"ui/white.png","width":74,"height":64,"x":0,"y":0,"name":"QuestionItem","presetID":1,"isPresetRoot":true},"compId":4,"loadList":["ui/white.png"],"loadList3D":[]}
+{"type":"Image","props":{"y":0,"x":0,"width":74,"skin":"ui/white.png","presetID":1,"name":"QuestionItem","isPresetRoot":true,"height":64},"compId":4,"child":[{"type":"Script","props":{"presetID":2,"runtime":"scripts/QuestionItem.ts"},"compId":5}],"loadList":["ui/white.png"],"loadList3D":[]}

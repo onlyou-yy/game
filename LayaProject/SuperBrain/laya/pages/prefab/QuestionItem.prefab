@@ -1,1 +1,42 @@
-{"type":"Image","props":{"skin":"ui/white.png","width":74,"height":64,"x":0,"y":0,"name":"QuestionItem","preset":"laya/pages/prefab/QuestionItem.prefab","presetID":1,"isPresetRoot":true},"compId":4,"child":[],"isAniNode":true,"nodeParent":2,"searchKey":"Image,QuestionItem","label":"QuestionItem","isDirectory":false,"hasChild":false,"x":15}
+{
+    "x":0,
+    "type":"Image",
+    "selectedBox":4,
+    "searchKey":"Image,QuestionItem",
+    "props":{"y":0,"x":0,"width":74,"skin":"ui/white.png","presetID":1,"preset":"laya/pages/prefab/QuestionItem.prefab","name":"QuestionItem","isPresetRoot":true,"height":64},
+    "nodeParent":-1,
+    "maxID":6,
+    "label":"QuestionItem",
+    "isOpen":null,
+    "isDirectory":true,
+    "isAniNode":true,
+    "hasChild":true,
+    "compId":4,
+    "child":[
+        {
+            "type":"Script",
+            "switchAble":true,
+            "source":"src/scripts/QuestionItem.ts",
+            "searchKey":"Script,QuestionItem",
+            "removeAble":true,
+            "props":{"presetID":2,"preset":"laya/pages/prefab/QuestionItem.prefab"},
+            "nodeParent":4,
+            "label":"QuestionItem",
+            "isDirectory":false,
+            "isClose":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":5,
+            "child":[
+                ]
+        }],
+    "animations":[
+        {
+            "nodes":[
+                ],
+            "name":"ani1",
+            "id":1,
+            "frameRate":24,
+            "action":0
+        }]
+}
